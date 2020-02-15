@@ -1,6 +1,6 @@
 # Mijia 360 1080p (1st-gen) camera hack
 
-This is an indirect fork of [niclet/xiaomi_hack](https://github.com/niclet/xiaomi_hack) (big thanks!) for the first-gen Mijia 360 1080p IP camera (JTSXJ01CM), with additional features:
+This is an indirect fork of [niclet/xiaomi_hack](https://github.com/niclet/xiaomi_hack) (big thanks!) for the first-gen Mijia 360 1080p IP camera (JTSXJ01CM), with additional features, some probably inspired from different Mi/Yi camera hacks, just to get this to work properly:
 
 * Enable/disable cloud (Mi Home)
 * SSH support
