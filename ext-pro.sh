@@ -24,7 +24,9 @@ if [ -f ${MCH_SD}/config.ini ]; then
     echo "----- Export variables from ${MCH_SD}/config.ini"
     while read env_var; do
         if [ "${env_var:0:4}" = "MCH_" ]; then
-            echo -e "export ${env_var}"
+            if [ "${env_var:0:9}" != "MCH_WIFI_" ]; then
+                echo -e "export ${env_var}"
+            fi
             export "${env_var}"
         fi
     done < ${MCH_SD}/config.ini
