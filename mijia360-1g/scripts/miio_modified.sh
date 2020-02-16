@@ -41,9 +41,9 @@ echo "----- WMM"
 # generate a default resolv.conf to set default dns server
 echo "----- Default DNS server"
 if [ ! -f "/tmp/resolv.conf" ]; then
-   touch /tmp/resolv.conf
-   echo "nameserver 8.8.8.8" >> /tmp/resolv.conf
-   echo "nameserver 8.8.4.4" >> /tmp/resolv.conf
+    touch /tmp/resolv.conf
+    echo "nameserver 8.8.8.8" >> /tmp/resolv.conf
+    echo "nameserver 8.8.4.4" >> /tmp/resolv.conf
 fi
 
 echo "----- Connecting to Wi-Fi"
@@ -52,10 +52,10 @@ echo "----- Connecting to Wi-Fi"
 
 # Red LED, Wi-Fi connection failed
 if [ "$?" != 0 ]; then
-   sh "${MCH_HOME}/scripts/led.sh" green off
-   sh "${MCH_HOME}/scripts/led.sh" red on
-   echo "Error: Wi-Fi connection failed"
-   exit 1
+    sh "${MCH_HOME}/scripts/led.sh" green off
+    sh "${MCH_HOME}/scripts/led.sh" red on
+    echo "Error: Wi-Fi connection failed"
+    exit 1
 fi
 
 # LED blue flash, wifi is OK
@@ -70,19 +70,26 @@ if [ -n "${MCH_TIMEZONE}" ]; then
 fi
 
 if [ "$MCH_ENABLE_RTSP" = "true" ]; then
-   echo "----- Starting RTSP"
-   /usr/local/bin/test_encode -A -s
-   /usr/local/bin/test_encode -B -s
-   killall test_encode
-   killall rtsp_server
-   killall test_tuning
-   sleep 5
-   /usr/local/bin/test_tuning -a 0 &
-   /usr/local/bin/test_encode -A -i 2560x1440 --bitrate 2000000 -f 30 --enc-mode 4 --lens-warp 1 --hdr-expo 1 --hdr-mode 0 -J --btype off -K --btype off -X --bmaxsize 1920x1080 --bsize 1920x1080 --smaxsize 1920x1080 -Y --bmaxsize 640x360 --bsize 640x360 -B -m 640x360 --smaxsize 640x360 --debug-enable 0
-   sleep 5
-   /usr/local/bin/rtsp_server &
-   /usr/local/bin/test_encode -A -h 1080p --bitrate 2000000 --qp-limit-i "28~51" --profile 2 -N30 -e
-   /usr/local/bin/test_encode -B -e
+    echo "----- Starting RTSP"
+    /usr/local/bin/test_encode -A -s
+    /usr/local/bin/test_encode -B -s
+    killall test_encode
+    killall rtsp_server
+    killall test_tuning
+    sleep 5
+    /usr/local/bin/test_tuning -a 0 &
+    /usr/local/bin/test_encode -A -i 2560x1440 --bitrate 2000000 -f 30 --enc-mode 4 --lens-warp 1 --hdr-expo 1 --hdr-mode 0 -J --btype off -K --btype off -X --bmaxsize 1920x1080 --bsize 1920x1080 --smaxsize 1920x1080 -Y --bmaxsize 640x360 --bsize 640x360 -B -m 640x360 --smaxsize 640x360 --debug-enable 0
+    sleep 5
+    /usr/local/bin/rtsp_server &
+    /usr/local/bin/test_encode -A -h 1080p --bitrate 2000000 --qp-limit-i "28~51" --profile 2 -N30 -e
+    /usr/local/bin/test_encode -B -e
+fi
+
+if [ "$MCH_ENABLE_NIGHT_VISION" = "true" ]; then
+    echo "----- Enabling night vision mode"
+    sh -c '(sleep 3; printf "%s\n" h d 1; sleep 1; printf "%s\n" q q;) | /usr/local/bin/test_image -i 1'
+    sh "${MCH_HOME}/scripts/ircut.sh" init
+    sh "${MCH_HOME}/scripts/ircut.sh" on
 fi
 
 # All good now

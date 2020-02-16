@@ -5,8 +5,9 @@ This is an indirect fork of [niclet/xiaomi_hack](https://github.com/niclet/xiaom
 * Enable/disable cloud (Mi Home)
 * SSH support
 * RTSP support
+* Night vision (on/off, **no auto yet**)
 
-However, there are a couple of features not working on Disabled Cloud mode, namely the voice translations; in this case, voice is not working at all. I also wanted to get even more features in here like motor control and night mode, but they're locked up in a library named libdrv.so (at least, according to my initial research).
+However, there are a couple of features not working on Disabled Cloud mode, namely the voice translations; in this case, voice is not working at all. I also wanted to get even more features in here like motor control ~~and night mode~~, but they're locked up in a library named libdrv.so (at least, according to my initial research).
 
 Unfortunately, I do not have enough time or brains to reverse-engineer either niclet's library (libxiaomihack.so) or libdrv.so, but if you are able to get a hold of their sources, or any other relevant source or clues/hints, just hit me up via [Twitter](https://twitter.com/JMacalinao).
 
