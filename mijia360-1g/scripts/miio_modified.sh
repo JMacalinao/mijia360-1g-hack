@@ -85,11 +85,14 @@ if [ "$MCH_ENABLE_RTSP" = "true" ]; then
     /usr/local/bin/test_encode -B -e
 fi
 
-if [ "$MCH_ENABLE_NIGHT_VISION" = "true" ]; then
+if [ "$MCH_ENABLE_NIGHT_VISION" = "true" ] || [ "$MCH_ENABLE_NIGHT_VISION" = "auto" ]; then
     echo "----- Enabling night vision mode"
-    sh -c '(sleep 3; printf "%s\n" h d 1; sleep 1; printf "%s\n" q q;) | /usr/local/bin/test_image -i 1'
     sh "${MCH_HOME}/scripts/ircut.sh" init
-    sh "${MCH_HOME}/scripts/ircut.sh" on
+    if [ "$MCH_ENABLE_NIGHT_VISION" = "true" ]; then
+        sh "${MCH_HOME}/scripts/night_vision.sh" on > /dev/null &
+    else
+        sh "${MCH_HOME}/scripts/night_vision.sh" auto > /dev/null &
+    fi
 fi
 
 # All good now
