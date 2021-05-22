@@ -1,3 +1,12 @@
+> **Note from the Author**
+> 
+> Unfortunately, this repo is not actively maintained anymore. There are basically three reasons:
+> * There is an issue with the camera that causes it to freeze after some time, and then resetting it (by unplugging it and plugging back in) could result to the yellow LED issue. Throughout early last year, I've been on this loop and I haven't been able to find the solution to it and break the loop.
+> * I've been wanting to get deeper into the camera subsystem (starting specifically with the test_encode program) and hopefully do some cool stuff wtih it, but I haven't been able to. I know there's the GM8136 SDK, which I believe is what the camera is using, but I'm unsuccessful in doing so.
+> * Lastly, I've moved on to other cameras. I'm using Yi cameras now, so I'm not that far off, and specifically picked ones that have prominent hacked firmwares (so as to not depend on cloud features or have stuff that call home). If you are curious, I use [this one](https://github.com/alienatedsec/yi-hack-v5) from @alienatedsec.)
+> 
+> For now, this camera is in my drawer, sadly not being used even though it's still working fine. I'm not counting on it, but hopefully someone else will be able to progress further, or maybe Xiaomi or someone else leaks the source code so there can be renewed interest.
+
 # Mijia 360 1080p (1st-gen) camera hack
 
 This is an indirect fork of [niclet/xiaomi_hack](https://github.com/niclet/xiaomi_hack) (big thanks!) for the first-gen Mijia 360 1080p IP camera (JTSXJ01CM), with additional features, some probably inspired from different Mi/Yi camera hacks, just to get this to work properly:
@@ -17,7 +26,7 @@ The firmware I'm currently using is version **3.3.10_2017121915** that I upgrade
 
 ## Installation
 
-0. If you are planning to use this with Mi Home (ENABLE_CLOUD=true), reset the camera and set it up first.
+0. Set up the camera with the Mi Home app. Make sure the WiFi credentials are correct. (Thanks to @Peter71131, [#3](https://github.com/JMacalinao/mijia360-1g-hack/issues/3#issuecomment-734204079))
 1. Copy all files to your SD card.
 2. Edit config.ini.
 3. Insert SD card to the camera.
