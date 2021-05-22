@@ -3,7 +3,7 @@
 > Unfortunately, this repo is not actively maintained anymore. There are basically three reasons:
 > * There is an issue with the camera that causes it to freeze after some time, and then resetting it (by unplugging it and plugging back in) could result to the yellow LED issue. Throughout early last year, I've been on this loop and I haven't been able to find the solution to it and break the loop.
 > * I've been wanting to get deeper into the camera subsystem (starting specifically with the test_encode program) and hopefully do some cool stuff wtih it, but I haven't been able to. I know there's the GM8136 SDK, which I believe is what the camera is using, but I'm unsuccessful in doing so.
-> * Lastly, I've moved on to other cameras. I'm using Yi cameras now, so I'm not that far off, and specifically picked ones that have prominent hacked firmwares (so as to not depend on cloud features or have stuff that call home). If you are curious, I use [this one](https://github.com/alienatedsec/yi-hack-v5) from @alienatedsec.)
+> * Lastly, I've moved on to other cameras. I'm using Yi cameras now, so I'm not that far off, and specifically picked ones that have prominent hacked firmwares (so as to not depend on cloud features or have stuff that call home). If you are curious, I use [this one](https://github.com/alienatedsec/yi-hack-v5) from @alienatedsec.
 > 
 > For now, this camera is in my drawer, sadly not being used even though it's still working fine. I'm not counting on it, but hopefully someone else will be able to progress further, or maybe Xiaomi or someone else leaks the source code so there can be renewed interest.
 
